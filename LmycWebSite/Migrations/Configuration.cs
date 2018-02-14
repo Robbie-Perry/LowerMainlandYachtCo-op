@@ -50,7 +50,7 @@ namespace LmycWebSite.Migrations
             {
                 var user = new ApplicationUser
                 {
-                    UserName = "adminUser",
+                    UserName = "a",
                     Email = "a@a.a",
                     FirstName = "adminFirstName",
                     LastName = "adminLastName",
@@ -68,7 +68,7 @@ namespace LmycWebSite.Migrations
             {
                 var user = new ApplicationUser
                 {
-                    UserName = "memberUser",
+                    UserName = "m",
                     Email = "m@m.m",
                     FirstName = "memberFirstName",
                     LastName = "memberLastName",
