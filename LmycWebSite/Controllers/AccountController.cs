@@ -151,12 +151,24 @@ namespace LmycWebSite.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser {
+                    UserName = model.User,
+                    Email = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Street = model.Street,
+                    City = model.City,
+                    Province = model.Province,
+                    PostalCode = model.PostalCode,
+                    Country = model.Country,
+                    MobileNumber = model.MobileNumber,
+                    SailingExperience = model.SailingExperience
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    UserManager.AddToRole(user.Id, "Member");
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
