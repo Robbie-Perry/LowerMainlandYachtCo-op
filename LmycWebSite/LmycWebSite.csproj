@@ -199,6 +199,10 @@
     <Compile Include="Migrations\201802081906243_NewUserFields.Designer.cs">
       <DependentUpon>201802081906243_NewUserFields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802140421177_CreateBoat.cs" />
+    <Compile Include="Migrations\201802140421177_CreateBoat.Designer.cs">
+      <DependentUpon>201802140421177_CreateBoat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -288,6 +292,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201802081906243_NewUserFields.resx">
       <DependentUpon>201802081906243_NewUserFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802140421177_CreateBoat.resx">
+      <DependentUpon>201802140421177_CreateBoat.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

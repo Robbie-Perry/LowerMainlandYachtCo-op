@@ -1,5 +1,6 @@
 namespace LmycWebSite.Migrations
 {
+    using LmycDataLib.Models;
     using LmycWebSite.Models;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
@@ -86,6 +87,41 @@ namespace LmycWebSite.Migrations
             //Assign roles to a@a.a and m@m.m
             UserManager.AddToRole(context.Users.Where(u => u.Email == "a@a.a").First().Id, "Admin");
             UserManager.AddToRole(context.Users.Where(u => u.Email == "m@m.m").First().Id, "Member");
+
+            context.Boats.AddOrUpdate(
+                b => b.BoatName,
+                    new Boat()
+                    {
+                        BoatName = "Sharqui",
+                        Picture = { },
+                        LengthInFeet = 27,
+                        Make = "C&C",
+                        Year = 1981,
+                        RecordCreationDate = DateTime.Now,
+                        ApplicationUser = context.Users.FirstOrDefault(u => u.Email == "a@a.a")
+                    },
+                    new Boat()
+                    {
+                        BoatName = "Pegasus",
+                        Picture = { },
+                        LengthInFeet = 27,
+                        Make = "C&C",
+                        Year = 1979,
+                        RecordCreationDate = DateTime.Now,
+                        ApplicationUser = context.Users.FirstOrDefault(u => u.Email == "a@a.a")
+                    },
+                    new Boat()
+                    {
+                        BoatName = "Frankie",
+                        Picture = { },
+                        LengthInFeet = 25,
+                        Make = "Cal Mark 2",
+                        Year = 1983,
+                        RecordCreationDate = DateTime.Now,
+                        ApplicationUser = context.Users.FirstOrDefault(u => u.Email == "a@a.a")
+                    }
+                );
+            context.SaveChanges();
         }
     }
 }
