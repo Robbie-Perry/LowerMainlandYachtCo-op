@@ -190,6 +190,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BoatsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -202,6 +203,14 @@
     <Compile Include="Migrations\201802140421177_CreateBoat.cs" />
     <Compile Include="Migrations\201802140421177_CreateBoat.Designer.cs">
       <DependentUpon>201802140421177_CreateBoat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802152058345_ChangeBoat1.cs" />
+    <Compile Include="Migrations\201802152058345_ChangeBoat1.Designer.cs">
+      <DependentUpon>201802152058345_ChangeBoat1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802152108387_ChangePicture.cs" />
+    <Compile Include="Migrations\201802152108387_ChangePicture.Designer.cs">
+      <DependentUpon>201802152108387_ChangePicture.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -266,6 +275,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Boats\Create.cshtml" />
+    <Content Include="Views\Boats\Delete.cshtml" />
+    <Content Include="Views\Boats\Details.cshtml" />
+    <Content Include="Views\Boats\Edit.cshtml" />
+    <Content Include="Views\Boats\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -295,6 +309,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802140421177_CreateBoat.resx">
       <DependentUpon>201802140421177_CreateBoat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802152058345_ChangeBoat1.resx">
+      <DependentUpon>201802152058345_ChangeBoat1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802152108387_ChangePicture.resx">
+      <DependentUpon>201802152108387_ChangePicture.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
