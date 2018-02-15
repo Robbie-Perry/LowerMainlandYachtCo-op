@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -42,6 +43,8 @@ namespace LmycWebSite.Models
         [Required]
         [Display(Name = "Sailing Experience")]
         public string SailingExperience { get; set; }
+
+        public IEnumerable<Boat> Boats { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

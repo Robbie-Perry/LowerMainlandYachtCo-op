@@ -93,7 +93,7 @@ namespace LmycWebSite.Migrations
                     new Boat()
                     {
                         BoatName = "Sharqui",
-                        Picture = { },
+                        Picture = "test",
                         LengthInFeet = 27,
                         Make = "C&C",
                         Year = 1981,
@@ -103,7 +103,7 @@ namespace LmycWebSite.Migrations
                     new Boat()
                     {
                         BoatName = "Pegasus",
-                        Picture = { },
+                        Picture = "test",
                         LengthInFeet = 27,
                         Make = "C&C",
                         Year = 1979,
@@ -113,7 +113,7 @@ namespace LmycWebSite.Migrations
                     new Boat()
                     {
                         BoatName = "Frankie",
-                        Picture = { },
+                        Picture = "test",
                         LengthInFeet = 25,
                         Make = "Cal Mark 2",
                         Year = 1983,
