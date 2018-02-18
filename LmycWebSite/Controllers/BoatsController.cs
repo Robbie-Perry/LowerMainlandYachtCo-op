@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using LmycDataLib.Models;
 using LmycWebSite.Models;
 
 namespace LmycWebSite.Controllers
 {
+    [Authorize]
     public class BoatsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -38,6 +35,7 @@ namespace LmycWebSite.Controllers
         }
 
         // GET: Boats/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -48,6 +46,7 @@ namespace LmycWebSite.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Create([Bind(Include = "BoatId,BoatName,Picture,LengthInFeet,Make,Year,RecordCreationDate,UserId")] Boat boat)
         {
             if (ModelState.IsValid)
@@ -63,6 +62,7 @@ namespace LmycWebSite.Controllers
         }
 
         // GET: Boats/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -82,6 +82,7 @@ namespace LmycWebSite.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Edit([Bind(Include = "BoatId,BoatName,Picture,LengthInFeet,Make,Year,RecordCreationDate,UserId")] Boat boat)
         {
             if (ModelState.IsValid)
@@ -94,6 +95,7 @@ namespace LmycWebSite.Controllers
         }
 
         // GET: Boats/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -109,6 +111,7 @@ namespace LmycWebSite.Controllers
         }
 
         // POST: Boats/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
