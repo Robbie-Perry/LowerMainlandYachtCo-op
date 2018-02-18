@@ -163,8 +163,10 @@ namespace LmycWebSite.Controllers
 
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
+      
             UserManager.RemoveFromRole(id, role);
-
+            
+            
             return RedirectToAction("Index");
         }
 

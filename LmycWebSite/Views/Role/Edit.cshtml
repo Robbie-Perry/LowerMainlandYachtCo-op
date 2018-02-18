@@ -27,9 +27,20 @@
                 @Html.DisplayFor(modelItem => item.UserName)
             </td>
             <td>
-                @Html.ActionLink("Remove", "Remove", new { id = item.Id, role = Model.Name })
+                @if (Model.Name.Equals("Admin") && item.UserName.Equals("a"))
+                { 
+                        @Html.Raw("Cannot Remove")
+                }
+                else
+                {
+                    @Html.ActionLink("Remove", "Remove", new { id = item.Id, role = Model.Name })
+                }
             </td>
         </tr>
     }
 
 </table>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
