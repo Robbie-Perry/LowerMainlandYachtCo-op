@@ -7,13 +7,13 @@ namespace LmycWebSite.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ChangePicture : IMigrationMetadata
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangePicture));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201802152108387_ChangePicture"; }
+            get { return "201802180249182_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source
