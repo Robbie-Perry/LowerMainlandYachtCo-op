@@ -1,0 +1,35 @@
+﻿@model Microsoft.AspNet.Identity.EntityFramework.IdentityRole
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<p>@Html.ActionLink("Add User", "Add", new { name = Model.Name })</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Users)
+        </th>
+        <th></th>
+    </tr>
+
+    @{ 
+        IEnumerable<LmycWebSite.Models.ApplicationUser> users = ViewBag.Users;
+    }
+
+    @foreach (var item in users)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.ActionLink("Remove", "Remove", new { id = item.Id, role = Model.Name })
+            </td>
+        </tr>
+    }
+
+</table>

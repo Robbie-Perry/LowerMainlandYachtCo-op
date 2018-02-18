@@ -60,6 +60,7 @@ namespace LmycWebSite.Models
 
         public DbSet<Boat> Boats { get; set; }
 
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -69,5 +70,6 @@ namespace LmycWebSite.Models
         {
             return new ApplicationDbContext();
         }
+
     }
 }

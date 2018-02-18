@@ -1,0 +1,3 @@
+﻿Add-Migration -ConfigurationTypeName LmycWebSite.Migrations.Configuration "NewMigration"
+
+Update-Database -ConfigurationTypeName LmycWebSite.Migrations.Configuration
