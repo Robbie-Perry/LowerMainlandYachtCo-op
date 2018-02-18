@@ -35,6 +35,7 @@ namespace LmycWebSite.Controllers
         }
 
         // GET: Boats/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -45,6 +46,7 @@ namespace LmycWebSite.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Create([Bind(Include = "BoatId,BoatName,Picture,LengthInFeet,Make,Year,RecordCreationDate,UserId")] Boat boat)
         {
             if (ModelState.IsValid)

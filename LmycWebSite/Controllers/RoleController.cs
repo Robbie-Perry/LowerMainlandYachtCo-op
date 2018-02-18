@@ -61,7 +61,7 @@ namespace LmycWebSite.Controllers
 
             IdentityRole role = roleManager.FindByName(name);
 
-            if (role != null)
+            if (role != null && role.Name != "Admin")
             {
                 roleManager.Delete(role);
             }
