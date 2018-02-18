@@ -30,14 +30,14 @@ namespace LmycWebSite.Models
         public string Province { get; set; }
 
         [Required]
-        [Display(Name ="Postal Code")]
+        [Display(Name = "Postal Code")]
         public string PostalCode { get; set; }
 
         [Required]
         public string Country { get; set; }
 
         [Required]
-        [Display(Name ="Mobile Number")]
+        [Display(Name = "Mobile Number")]
         public string MobileNumber { get; set; }
 
         [Required]
