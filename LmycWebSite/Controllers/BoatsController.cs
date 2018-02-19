@@ -5,6 +5,7 @@ using System.Net;
 using System.Web.Mvc;
 using LmycDataLib.Models;
 using LmycWebSite.Models;
+using System.Linq;
 
 namespace LmycWebSite.Controllers
 {
@@ -49,16 +50,13 @@ namespace LmycWebSite.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Create([Bind(Include = "BoatId,BoatName,Picture,LengthInFeet,Make,Year,RecordCreationDate,UserId")] Boat boat)
         {
-            if (ModelState.IsValid)
-            {
-                boat.RecordCreationDate = DateTime.Now;
-
-                db.Boats.Add(boat);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
-
-            return View(boat);
+            boat.RecordCreationDate = DateTime.Now;
+            boat.ApplicationUser = db.Users.FirstOrDefault(
+                u => u.UserName == User.Identity.Name
+            );
+            db.Boats.Add(boat);
+            await db.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
 
         // GET: Boats/Edit/5
@@ -85,13 +83,13 @@ namespace LmycWebSite.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Edit([Bind(Include = "BoatId,BoatName,Picture,LengthInFeet,Make,Year,RecordCreationDate,UserId")] Boat boat)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(boat).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
-            return View(boat);
+            boat.UserId = db.Users.FirstOrDefault(
+               u => u.UserName == User.Identity.Name
+           ).Id;
+
+            db.Entry(boat).State = EntityState.Modified;
+            await db.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
 
         // GET: Boats/Delete/5
