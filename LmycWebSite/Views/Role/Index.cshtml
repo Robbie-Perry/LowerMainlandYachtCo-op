@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
+
+@{
+    ViewBag.Title = "Roles";
+}
+
+<h2>Users & Roles</h2>
+
+<p>@Html.ActionLink("Create New Role", "Create", "Role")</p>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Users)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Users.Count)
+                </td>
+                <td>
+                    @Html.ActionLink("Manage", "Edit", new { name = item.Name }) |
+                    @if (item.Name.Equals("Admin"))
+                    {
+                        @Html.Raw("Cannot Remove")
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Delete", "Delete", new { name = item.Name })
+                    }
+                    
+                </td>
+            </tr>
+        }
+
+    </table>
